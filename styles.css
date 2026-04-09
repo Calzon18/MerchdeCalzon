@@ -34,11 +34,12 @@ body {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas flexibles */
+    /* Cambia auto-fit por un número fijo, ej: 3 */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 40px;
     padding: 60px 20px;
-    max-width: 1200px; /* Limita el ancho para que no se desparrame */
-    margin: 0 auto;    /* Centra el bloque entero en la pantalla */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .card {
@@ -481,4 +482,23 @@ button:hover {
     position: sticky;
     top: 0;
     z-index: 10000; /* Para que siempre esté por encima de todo */
+}
+
+/* Clase para productos nuevos */
+.coming-soon {
+    opacity: 0.8; /* Menos transparente que el 'sold' para que se vea mejor */
+    pointer-events: none; /* Evita que se pueda hacer clic */
+}
+
+.coming-soon::after {
+    content: "PRÓXIMAMENTE";
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #7da2cc; /* Color azul como tu cabecera para diferenciarlo */
+    color: white;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: 800;
+    z-index: 10;
 }
